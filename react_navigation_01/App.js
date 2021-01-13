@@ -10,6 +10,8 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Icon from 'react-native-vector-icons/dist/Ionicons';
+import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 
 import HomeScreen from './src/home';
 import UserScreen from './src/user';
@@ -23,22 +25,25 @@ const Tab = createBottomTabNavigator();
 
 const TabBarIcon = (focuesd, name) => {
   let iconImagePath;
+  let iconName, iconSize;
 
   if (name === 'Home') {
-    iconImagePath = require('./src/assets/pics/home_icon.png');
+    iconName = 'home-outline';
+    // iconImagePath = require('./src/assets/pics/home_icon.png');
   } else if (name === 'User') {
-    iconImagePath = require('./src/assets/pics/user_icon.png');
+    iconName = 'people-outline';
+    // iconImagePath = require('./src/assets/pics/user_icon.png');
   } else if (name === 'Message') {
-    iconImagePath = require('./src/assets/pics/message_icon.png');
+    iconName = 'mail-outline';
+    // iconImagePath = require('./src/assets/pics/message_icon.png');
   }
 
+  iconSize = focuesd ? 30 : 20;
+
   return (
-    <Image
-      style={{
-        width: focuesd ? 30 : 20,
-        height: focuesd ? 30 : 20,
-      }}
-      source = {iconImagePath}
+    <Ionicons
+      name={iconName}
+      size={iconSize}
     />
   )
 }
