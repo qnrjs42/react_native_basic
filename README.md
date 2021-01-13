@@ -1,3 +1,44 @@
+## navigation
+
+- with `react-native-gesture-handler`
+
+```js
+모든 네비게이션 구조는
+import { NavigationContainer } from '@react-navigation/native';
+NavigationContainer 컴포넌트 안에 속해야 한다.
+```
+
+```js
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+createStackNavigator()는 스크린이랑 네비게이터라는 두 개의 프로퍼티를 리턴하는 함수
+```
+
+```jsx
+import HomeScreen from './src/home';
+import UserScreen from './src/user';
+
+const Stack = createStackNavigator();
+
+class App extends Component {
+  render() {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name='User' component={UserScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    )
+  }
+}
+```
+
+
+
+---
+
 ## android 실행 시 주의사항
 
 ```
